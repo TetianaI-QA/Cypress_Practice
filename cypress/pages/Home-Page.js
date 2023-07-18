@@ -5,51 +5,51 @@ class HomePage {
 
     // Header
     getTitleOfThePage(){
-        return cy.get('#nav-title').contains(`WebdriverUniversity.com (Page Object Model)`);
+        return cy.xpath('//nav[@role="navigation"]').contains(`WebdriverUniversity.com (Page Object Model)`);
     }
 
     // Carusel
     checkTheLeftCaruselButton(){
-        return cy.get('.carousel-control.left');
+        return cy.xpath('//div//a[@class="left carousel-control"]');
     }
 
     checkTheRightCaruselButton(){
-        return cy.get('.carousel-control.right');
+        return cy.xpath('//div//a[@class="right carousel-control"]');
     }
 
     checkTheCaruselImage(){
-        return cy.get(`.carousel-inner > .active`);
+        return cy.xpath(`//div[@class="item active"]//img[@class="slide-image"]`);
     }
 
     checkCaruselIndicators(){
-        return cy.get(`.carousel-indicators`);
+        return cy.xpath(`//ol/li[@class="active"]`);
     }
 
     // Navigation menu
     getNavigatorMenuHome(){
-        return cy.get(':nth-child(1) > a').contains(`Home`);
+        return cy.xpath('//nav').contains(`Home`);
     }
 
     getNavigatorMenuOurProdukts(){
-        return cy.get(':nth-child(2) > a').contains(`Our Products`);
+        return cy.xpath('//ul/li[2]').contains(`Our Products`);
     }
 
     getNavigatorMenuContactUs(){
-        return cy.get(':nth-child(3) > a').contains(`Contact Us`);
+        return cy.xpath('//ul/li[last()]').contains(`Contact Us`);
     }
 
     // Content
     // Why we are Block
     getAboutUsTextTitle(){
-        return cy.get(":nth-child(1) > .thumbnail > .section-title > .sub-heading").contains(`Who Are We?`);
+        return cy.xpath(`//div/p[starts-with(text(), "Who")]`).contains(`Who Are We?`);
     }
 
     getAboutUsTextContent(){
-        return cy.get(':nth-child(1) > .thumbnail > .caption > p');
+        return cy.xpath(`//p[substring(text(), string-length(text()) - string-length("elit.") + 1) = "elit."]`);
     }
 
     checkFindOutMoreButton(){
-        return cy.get('#button-find-out-more > b').contains(`Find Out More!`);
+        return cy.xpath(`//button/b[contains(text(), "Find")]`)
     }
 
     checkPopUp(){
@@ -58,11 +58,12 @@ class HomePage {
 
     // Great service Block
     getGreatServiceTitle(){
-        return cy.get(":nth-child(2) > .thumbnail > .section-title > .sub-heading").contains(`GREAT SERVICE!`);
+        return cy.xpath(`//div/p[starts-with(text(), "GREAT")]`).contains(`GREAT SERVICE!`);
     }
 
     getGreatServiceTextContent(){
-        return cy.get(':nth-child(2) > .thumbnail > .caption > p');
+        //return cy.get(':nth-child(2) > .thumbnail > .caption > p');
+        return cy.xpath(`(//div/p[starts-with(text(), 'Lorem')])[2]`);
     }
     
     getGreatServiceStars(){
@@ -71,20 +72,20 @@ class HomePage {
 
     // Why choose us Block
     getWhyChooseUsTile(){
-        return cy.get(":nth-child(3) > .thumbnail > .section-title > .sub-heading").contains(`Why Choose Us?`);
+        return cy.xpath(`//div/p[starts-with(text(), "Why")]`).contains(`Why Choose Us?`);
     }
 
     getWhyChooseUsTextContent(){
-        return cy.get(':nth-child(3) > .thumbnail > .caption > p');
+        return cy.xpath(`(//div/p[starts-with(text(), 'Lorem')])[3]`);
     }
 
     // Exellent customer service Block
     getExellentCustomerServiceTitle(){
-        return cy.get(":nth-child(4) > .thumbnail > .section-title > .sub-heading").contains(`Excellent Customer Service!`);
+        return cy.xpath(`//div/p[starts-with(text(), "Ex")]`).contains(`Excellent Customer Service!`);
     }
 
     getExellentCustomerServiceTextContent(){
-        return cy.get(':nth-child(4) > .thumbnail > .caption > p');
+        return cy.xpath(`(//div/p[starts-with(text(), 'Lorem')])[4]`);
     }
 
     getExellentCustomerServiceStars(){
@@ -93,7 +94,12 @@ class HomePage {
 
     // Footer
     getFooterText(){
-        return cy.get('.col-lg-12 > p').contains(`Copyright © www.GianniBruno.com`);
+        return cy.xpath('//div/p[starts-with(text(), "Copyright")]').contains(`Copyright © www.GianniBruno.com`);
+    }
+
+    //Buttons
+    getButtonByButtonName(name){
+        return cy.xpath(`//button/b[contains(text(), "${name}")]`)
     }
 }
 

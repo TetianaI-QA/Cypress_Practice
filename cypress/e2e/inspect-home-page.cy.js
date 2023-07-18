@@ -46,7 +46,7 @@ describe('Check all elements on Home Page', () => {
 it('Check the click on "Find Out More" Button', () => {
   // Check the Button
     homePage.openHomePage();
-    homePage.checkFindOutMoreButton().click();
+    homePage.getButtonByButtonName(`Find Out More!`).click();
     homePage.checkPopUp().should(`be.visible`);
   });
 });

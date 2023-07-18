@@ -6,19 +6,19 @@ class ContactUsPage {
     }
 
     getFirstName(){
-        return cy.get(`input[name="first_name"]`);
+        return cy.xpath(`//input[@name="first_name"]`);
     }
 
     getLastName(){
-        return cy.get(`input[name="last_name"]`);
+        return cy.xpath(`//input[@name="last_name"]`);
     }
 
     getEmail(){
-        return cy.get(`input[name="email"]`);
+        return cy.xpath(`//input[@name="email"]`);
     }
 
     getComment(){
-        return cy.get(`textarea[name="message"]`);
+        return cy.xpath(`//textarea[@name="message"]`);
     }
 
     getSubmitButton(){

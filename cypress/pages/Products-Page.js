@@ -37,7 +37,7 @@ class ProductPage {
     }
 
     getAudioTitle(){
-        return cy.get('#container-product7').contains(`Audio`);
+        return cy.get('#container-product7').should(`have.text`, `Audio`);
     }
 
     //Pictures
