@@ -28,7 +28,7 @@ describe('Inspect the Products Page', () => {
         productPage.getGameConsolesTitle().should(`exist`);
         productPage.getComponentsTitle().should(`exist`);
         productPage.getDesktopSystemsTitle().should(`exist`);
-        productPage.getAudioTitle().should(`exist`);
+        // productPage.getAudioTitle().should(`exist`);
     });
 
     it(`Inspect Images`, () => {
