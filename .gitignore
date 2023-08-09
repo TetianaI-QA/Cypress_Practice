@@ -5,7 +5,3 @@ cypress.config.js
 /cypress/support/*
 vp-script.cy.js
 OOP.js
-inspect-dropdown-page.cy.js
-Dropdown-Page.js
-dropdown-values.js
-*/steps/*
