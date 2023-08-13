@@ -22,4 +22,5 @@ export class HiddenElementsPage{
     static get getModalMoveClick(){
         return cy.get(`#myModalMoveClick`);
     }
+
 }

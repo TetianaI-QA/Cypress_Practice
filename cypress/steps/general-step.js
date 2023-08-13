@@ -12,4 +12,8 @@ export class GeneralStep{
         cy.visit(`http://www.webdriveruniversity.com/Hidden-Elements/index.html`);
         cy.once(`uncaught:exception`, () => false)
     }
+
+    visitTablesPage(){
+        cy.visit(`http://www.webdriveruniversity.com/Data-Table/index.html`);
+    }
 }
