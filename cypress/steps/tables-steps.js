@@ -5,8 +5,19 @@ import { Table02 } from "../test-data/tables-data";
 import { Badges } from "../test-data/tables-data";
 import { TableDataHead } from "../test-data/tables-data";
 import { TableDadaBody } from "../test-data/tables-data";
+import { DrinksList } from "../test-data/tables-data";
+import { FoodList } from "../test-data/tables-data";
+import { JobsList } from "../test-data/tables-data";
 
 export class TablesStep extends GeneralStep{
+    checkGeneralTitle(){
+      TablesPage.getGeneralTitle.should(`have.text`, `Data, Tables & Button States`);
+    }
+
+    checkFooter(){
+      TablesPage.getFooter.should(`have.text`, `Copyright © www.GianniBruno.com`);
+    }
+
     // First block with 2 tables and 3 input areas
     checkData1Table(){
     const parsedData = [];
@@ -207,4 +218,45 @@ export class TablesStep extends GeneralStep{
     }
 
     // Lists
+    checkDrinksList(){
+    const actualDrinks = [];
+    TablesPage.getDrinksList.then((ul) => {
+      cy.wrap(ul).find('li').each((item, itemIndex) => {
+        cy.wrap(item).invoke('text').then((text) => {
+          actualDrinks.push(text);
+        })
+      })
+    }).then(() => {
+      cy.wrap(actualDrinks).should('deep.eq', DrinksList);
+    })
+    }
+
+    checkFoodList(){
+    const actualFood = [];
+    TablesPage.getFoodsList.then((ul) => {
+      cy.wrap(ul).find('li').each((item, itemIndex) => {
+        cy.wrap(item).invoke('text').then((text) => {
+          actualFood.push(text);
+        })
+      })
+    }).then(() => {
+      cy.wrap(actualFood).should('deep.eq', FoodList);
+    })
+    TablesPage.getFruitsListTitle.should(`have.class`, `list-header`).should(`have.text`, `Fruits`);
+    TablesPage.getVegetablesListTitle.should(`have.class`, `list-header`).should(`have.text`, `Vegetables`);
+    }
+
+    checkJobList(){
+      TablesPage.getJobListTitle.should(`have.class`, `list-header`).should(`have.text`, `Types of Jobs`);
+    const actualJobs = [];
+    TablesPage.getJobListBody.then((ul) => {
+      cy.wrap(ul).find('li').each((item, itemIndex) => {
+        cy.wrap(item).invoke('text').then((text) => {
+          actualJobs.push(text);
+        })
+      })
+    }).then(() => {
+      cy.wrap(actualJobs).should('deep.eq', JobsList);
+    })
+    }
 }

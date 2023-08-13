@@ -26,3 +26,7 @@ export const TableDadaBody = [
   [`2`, `Jacob`, `Jones`],
   [`3`, `Larry`, `Scott`],
 ]
+
+export const DrinksList = [`Coffee`, `Tea`, `Milk`, `Espresso`, `Sugar`]
+export const FoodList = [`Fruits`, `Apple`, `Banana`, `Blackberries`, `Cherries`, `Figs`, `Vegetables`, `Asparagus`, `Broccoli`, `Kidney beans`, `Lentils`]
+export const JobsList = [`Finance`, `Technology`, `Sales`]

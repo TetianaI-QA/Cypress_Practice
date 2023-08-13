@@ -5,6 +5,12 @@ const tablesStep = new TablesStep();
 
 
 describe('Inspect the Data Table page', () => {
+    it(`General checks`, () => {
+      tablesStep.visitTablesPage();
+      tablesStep.checkGeneralTitle();
+      tablesStep.checkFooter();
+    })
+
   // First block with 2 tables and 3 input areas
     it('Check the data from the first table', () => {
       tablesStep.visitTablesPage();
@@ -70,7 +76,7 @@ describe('Inspect the Data Table page', () => {
     })
 
     // Random Text
-    it.only(`Check the Random Text block`, () => {
+    it(`Check the Random Text block`, () => {
       tablesStep.visitTablesPage();
       tablesStep.inspectTextTitle();
       tablesStep.inspectFirstText();
@@ -79,6 +85,12 @@ describe('Inspect the Data Table page', () => {
     })
 
     // Lists
+    it(`Check the Lists block`, () => {
+      tablesStep.visitTablesPage();
+      tablesStep.checkDrinksList();
+      tablesStep.checkFoodList();
+      tablesStep.checkJobList();
+    })
 });
   
   

@@ -1,4 +1,12 @@
 export class TablesPage{
+    static get getGeneralTitle(){
+        return cy.xpath(`//*[@id="main-header"]/h1`);
+    }
+
+    static get getFooter(){
+        return cy.xpath(`//*[@id="nav-container"]//p`);
+    }
+
     // First block with 2 tables and 3 input areas
     static get getFirstName(){
         return cy.xpath(`//*[@id="form-textfield"]/input[1]`);
@@ -134,4 +142,27 @@ export class TablesPage{
     }
 
     // Lists
+    static get getDrinksList(){
+        return cy.get('.traversal-drinks-list');
+    }
+
+    static get getFoodsList(){
+        return cy.get(`ul.traversal-food-list`);
+    }
+
+    static get getFruitsListTitle(){
+        return cy.xpath(`//*[@id="fruits"]`);
+    }
+
+    static get getVegetablesListTitle(){
+        return cy.xpath(`//*[@id="veggie"]`);
+    }
+
+    static get getJobListTitle(){
+        return cy.xpath(`//*[@id="types-of-jobs"]`);
+    }
+
+    static get getJobListBody(){
+        return cy.xpath(`//div[9]/div[1]/ul[3]/ul`);
+    }
 }
