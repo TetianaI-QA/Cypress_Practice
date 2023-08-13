@@ -18,4 +18,10 @@ describe('Datepicker Tests', () => {
     it('Should select date 1 year ahead', () => {
       datepickerStep.checkPlusYearDate();
     });
+
+    it.only('Choose random date', () => {
+      datepickerStep.chooseRandomYear();
+      datepickerStep.chooseRandomMonth();
+      datepickerStep.chooseRandomDay(); 
+    });
   });

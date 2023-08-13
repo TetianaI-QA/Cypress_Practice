@@ -57,6 +57,31 @@ export class DatepickerStep extends GeneralStep{
         });  
     }
 
+    chooseRandomYear(){
+        // Generate a random year between 2024 and 2050
+        const randomYear = Math.floor(Math.random() * (2050 - 2024 + 1)) + 2024;
+        cy.get('#datepicker > input').click();
+        cy.xpath(`//div[2]/div[1]//tr[1]/th[2]`).click();
+        cy.xpath('//div[2]/div[2]//th[3]').then($nextButtons => {
+            const numberOfClicks = randomYear - 2023;
+            for (let i = 0; i < numberOfClicks; i++){
+                cy.wrap($nextButtons).click();
+            }
+        });
+        cy.get('.datepicker-years .year:contains(' + randomYear + ')');
+        // Verify that the selected year is displayed in the top of calendar
+        cy.xpath('//div[2]/div[2]//th[2]').should('have.text', randomYear);
+    }
 
+    chooseRandomMonth(){
+        const randomMonth = Math.floor(Math.random() * 12) + 1;
+        console.log(randomMonth);
+        cy.xpath(`//div[2]/div[2]//span[${randomMonth + 1}]`).click();
+    }
 
+    chooseRandomDay(){
+        const randomDay = Math.floor(Math.random() * 28) + 1;
+        console.log(randomDay);
+        cy.xpath(`//td[@class="day"][text() = "${randomDay}"]`).should('have.text', randomDay).click();
+    }
 }
