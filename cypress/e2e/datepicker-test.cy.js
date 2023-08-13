@@ -19,7 +19,7 @@ describe('Datepicker Tests', () => {
       datepickerStep.checkPlusYearDate();
     });
 
-    it.only('Choose random date', () => {
+    it('Choose random date', () => {
       datepickerStep.chooseRandomYear();
       datepickerStep.chooseRandomMonth();
       datepickerStep.chooseRandomDay(); 
