@@ -16,4 +16,8 @@ export class GeneralStep{
     visitTablesPage(){
         cy.visit(`http://www.webdriveruniversity.com/Data-Table/index.html`);
     }
+
+    visitDatepickerPage(){
+        cy.visit('http://www.webdriveruniversity.com/Datepicker/index.html');
+    }
 }
